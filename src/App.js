@@ -9,17 +9,30 @@ constructor(){
   super()
   this.state = {
     streamers: [],
-    nonStreamers: []
-  }
+    nonStreamers: [],
+    allStreams: []
   }
 
-  random(arr){
-    arr.forEach((name) => {
+  }
+
+  componentDidMount(){
+    users.forEach((name) => {
       fetch(`https://wind-bow.glitch.me/twitch-api/streams/${name}`)
   .then(response => response.json())
-  .then(data => console.log(data));
+  .then(data => {
+    this.random(data)
     });
+    });
+  }
 
+  //it turns out that the reason I couldnt access allstreams[0].stream period was because I was setting state
+  //in the same function as fetch,  its the same thing that happened with the weather project. Apparently I have
+  //to setstate outside of fetch
+
+  random(data){
+    this.setState({
+      allStreams: [...this.state.allStreams, data]
+    })
   }
 
 
@@ -27,8 +40,7 @@ constructor(){
   return (
     <div className="App">
     hi
-    {this.random(users)}
-    {console.log(this.state)}
+    {console.log(this.state.allStreams[3])}
     </div>
   );
 }
