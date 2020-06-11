@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap');
+
 .App {
   text-align: center;
 }
@@ -35,4 +37,21 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.twitchStreamers {
+  margin: auto;
+  margin-top: 1em;
+  width: 50em;
+  height: 7em;
+  color: #E1E1E6;
+  background-color: #5C5457;
+  padding-top: 1px;
+}
+
+.bannerText {
+  font-family: 'Roboto', sans-serif;
+  font-size: 2.5em;
+  margin-right: 10em;
+  margin-top: 1em;
 }

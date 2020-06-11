@@ -4,6 +4,7 @@ import './App.css';
 import All from './components/all.js'
 import Online from './components/online.js'
 import Offline from './components/offline.js'
+import TwitchStreamers from './components/twitchStreamers.js'
 const users = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "storbeck", "habathcx", "RobotCaleb", "noobs2ninjas"]
 
 class App extends React.Component {
@@ -60,9 +61,7 @@ constructor(){
   render(){
   return (
     <div className="App">
-      <Online/>
-      <Offline/>
-      <All/>
+      <TwitchStreamers/>
     </div>
   );
 }
