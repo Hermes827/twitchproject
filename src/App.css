@@ -55,3 +55,38 @@
   margin-right: 10em;
   margin-top: 1em;
 }
+
+.buttonsDiv {
+  /* margin-left: 65.5em;
+  margin-bottom: 20em; */
+  /* right: 5em; */
+  right: -65.75em;
+  top: -6em;
+  position:relative;
+}
+
+.buttons {
+  display: block;
+  height: 1.5em;
+  width: 5em;
+  margin: 0.25em 0em;
+  border-style: solid;
+  /* color: #5C5457; */
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 100%;
+  right: 0;
+  background-color: #008CBA;
+  overflow: hidden;
+  width: 0;
+  height: 100%;
+  transition: .5s ease;
+}
+
+.container:hover .overlay {
+  width: 100%;
+  left: 0;
+}

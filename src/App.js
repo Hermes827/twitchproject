@@ -1,10 +1,11 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import All from './components/all.js'
-import Online from './components/online.js'
-import Offline from './components/offline.js'
+import All from './containers/all.js'
+import Online from './containers/online.js'
+import Offline from './containers/offline.js'
 import TwitchStreamers from './components/twitchStreamers.js'
+import User from './components/user.js'
 const users = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "storbeck", "habathcx", "RobotCaleb", "noobs2ninjas"]
 
 class App extends React.Component {
@@ -52,9 +53,21 @@ constructor(){
   //this way it doesnt trigger until the data is actually loaded and im not just
   //trying to call on an empty variable
 
-  random(){
+  // random(){
+  //   if(this.state.allStreams.length === users.length){
+  //     this.state.allStreams.forEach((user) => {
+  //       return(
+  //         <User user={user}/>
+  //       )
+  //     });
+  //   }
+  // }
+
+  renderAll(){
     if(this.state.allStreams.length === users.length){
-      console.log(this.state.allStreams[7].stream)
+      return(
+        <All allStreams={this.state.allStreams}/>
+      )
     }
   }
 
@@ -62,6 +75,7 @@ constructor(){
   return (
     <div className="App">
       <TwitchStreamers/>
+      {this.renderAll()}
     </div>
   );
 }

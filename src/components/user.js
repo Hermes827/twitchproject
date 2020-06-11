@@ -1,6 +1,6 @@
 import React from 'react';
 
-class All extends React.Component {
+class User extends React.Component {
 
 constructor(){
   super()
@@ -9,10 +9,11 @@ constructor(){
   render(){
   return (
     <div>
-    fizzbuzz
+    {console.log(this.props.user)}
+    user
     </div>
   );
 }
 }
 
-export default All;
+export default User;
