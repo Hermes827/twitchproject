@@ -1,6 +1,9 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import All from './components/all.js'
+import Online from './components/online.js'
+import Offline from './components/offline.js'
 const users = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "storbeck", "habathcx", "RobotCaleb", "noobs2ninjas"]
 
 class App extends React.Component {
@@ -12,7 +15,6 @@ constructor(){
     nonStreamers: [],
     allStreams: []
   }
-
   }
 
   componentDidMount(){
@@ -58,7 +60,9 @@ constructor(){
   render(){
   return (
     <div className="App">
-    {this.random()}
+      <Online/>
+      <Offline/>
+      <All/>
     </div>
   );
 }
