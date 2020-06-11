@@ -20,28 +20,45 @@ constructor(){
       fetch(`https://wind-bow.glitch.me/twitch-api/streams/${name}`)
   .then(response => response.json())
   .then(data => {
-    this.random(data)
+    if(data.stream === null){
+       this.setState({
+         nonStreamers: [...this.state.nonStreamers, data],
+         allStreams: [...this.state.allStreams, data]
+       })
+     } else {
+       this.setState({
+         streamers: [...this.state.streamers, data],
+         allStreams: [...this.state.allStreams, data]
+       })
+     }
     });
     });
   }
 
-  //it turns out that the reason I couldnt access allstreams[0].stream period was because I was setting state
-  //in the same function as fetch,  its the same thing that happened with the weather project. Apparently I have
-  //to setstate outside of fetch
+  //it turns out that the reason that I wasnt able to access allStreams[0].stream
+  //was because when the component is first mounted this.state.allStreams is empty
+  //thats why I kept getting an error, in order to get around this have to use function
+  //like this:
 
-  random(data){
-    this.setState({
-      allStreams: [...this.state.allStreams, data]
-    })
+  // random(){
+  //   if(this.state.allStreams.length === users.length){
+  //     console.log(this.state.allStreams[7].stream)
+  //   }
+  // }
+
+  //this way it doesnt trigger until the data is actually loaded and im not just
+  //trying to call on an empty variable
+
+  random(){
+    if(this.state.allStreams.length === users.length){
+      console.log(this.state.allStreams[7].stream)
+    }
   }
-
- 
 
   render(){
   return (
     <div className="App">
-    hi
-    {console.log(this.state.allStreams[3])}
+    {this.random()}
     </div>
   );
 }
