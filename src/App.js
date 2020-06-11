@@ -1,26 +1,37 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+const users = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "storbeck", "habathcx", "RobotCaleb", "noobs2ninjas"]
 
-function App() {
+class App extends React.Component {
+
+constructor(){
+  super()
+  this.state = {
+    streamers: [],
+    nonStreamers: []
+  }
+  }
+
+  random(arr){
+    arr.forEach((name) => {
+      fetch(`https://wind-bow.glitch.me/twitch-api/streams/${name}`)
+  .then(response => response.json())
+  .then(data => console.log(data));
+    });
+
+  }
+
+
+  render(){
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    hi
+    {this.random(users)}
+    {console.log(this.state)}
     </div>
   );
+}
 }
 
 export default App;
