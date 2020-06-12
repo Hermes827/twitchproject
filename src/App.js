@@ -35,6 +35,8 @@ constructor(){
          allStreams: [...this.state.allStreams, data]
        })
      }
+   }).catch(function(){
+        console.log("error");
     });
     });
   }

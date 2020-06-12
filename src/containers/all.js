@@ -8,17 +8,24 @@ constructor(){
   }
 
   cool(){
-    this.props.allStreams.forEach((user) => {
-      return <User user={user}/>
+    this.props.allStreams.forEach((info) => {
+      return <User info={info._links.self}/>
     })
-    
   }
+  //so it turns out that "cool" function must use .map instead of forEach, otherwise
+  //the data doesnt pass onto to <User/>. Secondly, the logic inside cool function
+  //must be placed directly in the div thats inside the render itself, otherwise
+  //it doesnt work
 
   render(){
+
   return (
     <div>
-    fizzbuzz
-    {this.cool()}
+      {
+        this.props.allStreams.map((info) => {
+          return <User info={info._links.self}/>
+        })
+      }
     </div>
   );
 }

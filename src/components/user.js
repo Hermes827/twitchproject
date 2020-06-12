@@ -6,11 +6,16 @@ constructor(){
   super()
   }
 
+  returnName(){
+    var parser = document.createElement('a');
+    parser.href = this.props.info
+    return parser.pathname.slice(16)
+  }
+
   render(){
   return (
     <div>
-    {console.log(this.props.user)}
-    user
+    {this.returnName()}
     </div>
   );
 }
