@@ -17,12 +17,21 @@ constructor(){
   //must be placed directly in the div thats inside the render itself, otherwise
   //it doesnt work
 
+  random(info){
+    if(info.stream === null){
+      return
+    } else {
+      console.log(info.stream.channel.status)
+    }
+  }
+
   render(){
 
   return (
-    <div>
+    <div className="all">
       {
         this.props.allStreams.map((info) => {
+          this.random(info)
           return <User info={info._links.self}/>
         })
       }

@@ -98,7 +98,7 @@ constructor(){
   renderStreamers(){
     if(this.state.showStreamers === true){
       return(
-        <Online streamers={this.state.streamers}/>
+        <Online className="online" streamers={this.state.streamers}/>
       )
     }
   }
@@ -106,7 +106,7 @@ constructor(){
   renderNonstreamers(){
     if(this.state.showNonstreamers === true){
       return(
-        <Offline nonStreamers={this.state.nonStreamers}/>
+        <Offline className="offline" nonStreamers={this.state.nonStreamers}/>
       )
     }
   }

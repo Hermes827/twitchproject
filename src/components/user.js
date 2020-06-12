@@ -15,7 +15,7 @@ constructor(){
 
   render(){
   return (
-    <div>
+    <div className="user">
     {this.returnName()}
     </div>
   );

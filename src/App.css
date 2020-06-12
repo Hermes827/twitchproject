@@ -90,3 +90,26 @@
   width: 100%;
   left: 0;
 } */
+
+.user {
+  border-style: solid;
+  border-width: thin;
+  border-color: black;
+  width: 50%;
+}
+
+.all {
+  position: relative;
+  left: 32em;
+  width: 50em;
+  /* border-style: solid;
+  color: black; */
+}
+
+.online {
+
+}
+
+.offline {
+
+}
