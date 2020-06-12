@@ -11,6 +11,7 @@ constructor(){
     parser.href = this.props.info
     return parser.pathname.slice(16)
   }
+  //this is a quick and dirty method, need to revise this later to use a proper regex
 
   render(){
   return (

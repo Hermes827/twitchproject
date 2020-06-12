@@ -1,4 +1,5 @@
 import React from 'react';
+import User from '../components/user.js'
 
 class Offline extends React.Component {
 
@@ -9,7 +10,11 @@ constructor(){
   render(){
   return (
     <div>
-    buzz
+      {
+        this.props.nonStreamers.map((info) => {
+          return <User info={info._links.self}/>
+        })
+      }
     </div>
   );
 }

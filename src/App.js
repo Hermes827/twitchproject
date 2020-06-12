@@ -15,8 +15,14 @@ constructor(){
   this.state = {
     streamers: [],
     nonStreamers: [],
-    allStreams: []
+    allStreams: [],
+    showAll: true,
+    showStreamers: false,
+    showNonstreamers: false
   }
+  this.showStreamers = this.showStreamers.bind(this)
+  this.showNonstreamers = this.showNonstreamers.bind(this)
+  this.showAll = this.showAll.bind(this)
   }
 
   componentDidMount(){
@@ -36,7 +42,7 @@ constructor(){
        })
      }
    }).catch(function(){
-        console.log("error");
+        console.log("error")
     });
     });
   }
@@ -65,8 +71,48 @@ constructor(){
   //   }
   // }
 
+  showStreamers(){
+    this.setState({
+      showAll: false,
+      showStreamers: true,
+      showNonstreamers: false
+    })
+  }
+
+  showNonstreamers(){
+    this.setState({
+      showAll: false,
+      showNonstreamers: true,
+      showStreamers: false
+    })
+  }
+
+  showAll(){
+    this.setState({
+      showAll: true,
+      showNonstreamers: false,
+      showStreamers: false
+    })
+  }
+
+  renderStreamers(){
+    if(this.state.showStreamers === true){
+      return(
+        <Online streamers={this.state.streamers}/>
+      )
+    }
+  }
+
+  renderNonstreamers(){
+    if(this.state.showNonstreamers === true){
+      return(
+        <Offline nonStreamers={this.state.nonStreamers}/>
+      )
+    }
+  }
+
   renderAll(){
-    if(this.state.allStreams.length === users.length){
+    if(this.state.allStreams.length === users.length && this.state.showAll === true){
       return(
         <All allStreams={this.state.allStreams}/>
       )
@@ -76,8 +122,14 @@ constructor(){
   render(){
   return (
     <div className="App">
-      <TwitchStreamers/>
+      <TwitchStreamers
+        showStreamers={this.showStreamers}
+        showNonstreamers={this.showNonstreamers}
+        showAll={this.showAll}
+        />
       {this.renderAll()}
+      {this.renderStreamers()}
+      {this.renderNonstreamers()}
     </div>
   );
 }

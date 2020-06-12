@@ -6,6 +6,8 @@ constructor(){
   super()
   }
 
+
+
   render(){
   return (
     <div>
@@ -13,9 +15,9 @@ constructor(){
     <div className="bannerText">Twitch Streamers</div>
     </div>
     <div className="buttonsDiv">
-    <button className="buttons">All</button>
-    <button className="buttons">Online</button>
-    <button className="buttons">Offline</button>
+    <button className="buttons" onClick={this.props.showAll}>All</button>
+    <button className="buttons" onClick={this.props.showStreamers}>Online</button>
+    <button className="buttons" onClick={this.props.showNonstreamers}>Offline</button>
     </div>
     </div>
   );
